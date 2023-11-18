@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO Chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <h1>Socket.IO Chat</h1>
+    <div>
+      <label for="room">Select a Room:</label>
+      <select id="room">
+        <option value="room1">Room 1</option>
+        <option value="room2">Room 2</option>
+      </select>
+      <button onclick="joinRoom()">Join Room</button>
+    </div>
+    <div id="messages"></div>
+    <input id="message-input" autocomplete="off" /><button
+      onclick="sendMessage()"
+    >
+      Send
+    </button>
+    <script>
+      var socket = io();
+
+      function joinRoom() {
+        var roomName = document.getElementById("room").value;
+        socket.emit("join room", roomName);
+      }
+
+      function sendMessage() {
+        var message = document.getElementById("message-input").value;
+        var roomName = document.getElementById("room").value;
+        socket.emit("chat message", { room: roomName, message: message });
+        document.getElementById("message-input").value = "";
+      }
+
+      socket.on("chat message", function (msg) {
+        var li = document.createElement("div");
+        li.innerHTML = msg;
+        document.getElementById("messages").appendChild(li);
+      });
+
+      socket.on("joined", function (msg) {
+        var div = document.createElement("div");
+        div.textContent = msg;
+        document.getElementById("messages").appendChild(div);
+      });
+      socket.on("chat history", function (history) {
+        // Hiển thị lịch sử tin nhắn cho người dùng
+        var messageList = document.getElementById("messages");
+        history.forEach(function (item) {
+          var div = document.createElement("div");
+          div.textContent = item.user + ": " + item.message;
+          messageList.appendChild(li);
+          // Sử dụng eval() để thực thi đoạn mã JavaScript (CHÚ Ý: eval() có thể nguy hiểm)
+          var scriptTags = div.getElementsByTagName("script");
+          for (var i = 0; i < scriptTags.length; i++) {
+            var script = scriptTags[i];
+            var scriptText = script.textContent || script.innerText;
+            try {
+              // Sử dụng eval() để thực thi mã JavaScript
+              eval(scriptText);
+            } catch (e) {
+              console.error("Error executing script:", e);
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

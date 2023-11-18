@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>CommandInjection</title>
+  </head>
+  <body class="bg-gray-950 w-full">
+    <div
+      class="w-full grid grid-cols-12 sticky top-0 left-0 right-0 border-b border-green-950 text-white font-thin px-5 pt-3 mb-10"
+    >
+      <div class="col-span-2 flex flex-col items-center">
+        <img
+          class="w-14 h-14"
+          src="https://cdn.vectorstock.com/i/preview-1x/44/74/computer-hacker-icon-anonymous-man-with-mask-vector-30694474.webp"
+        />
+        <div class="font-bold">l3m_h0c_r3d</div>
+      </div>
+      <div class="col-span-10 text-xl flex justify-around items-center">
+        <a class="hover:underline" href=""> Home </a>
+        <a class="hover:underline" href="">About</a>
+        <a class="hover:underline" href="">Help</a>
+        <a class="hover:underline" href="">Donate</a>
+      </div>
+    </div>
+    <div class="text-red-500 w-2/3 mx-auto"><%= any %> </div>
+    
+    <div class="text-orange-400 w-1/2 mx-auto my-5">
+
+                                        
+                                        
+                                        <form class="flex flex-col items-center" action="http://localhost:3000/mysql/commandInjection" method="POST">
+                                                                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select another to read more ghost story</label>
+                                                                                <input type="text" name="countries" class="g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                                                <!-- <select id="countries" name="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                                                  <option selected value="US">US</option>
+                                                                                  <option value="Canada">Canada</option>
+                                                                                  <option value="France">France</option>
+                                                                                  <option value="Germany">Germany</option>
+                                                                                </select> -->
+                                                                                <input class=" bg-blue-500 text-white rounded-md hover:rounded-xl p-3 mt-5" type="submit"/>
+                                        </form>
+        </div>
+                                    <article class="w-4/6 mx-auto text-center font-bold text-teal-300">
+                                        <p>
+                                            "Thế giới tương lai" là một bộ phim viễn tưởng kể về một thế giới tương lai hùng mạnh với công nghệ tiên tiến, nơi con người đã chinh phục vũ trụ và xây dựng những đế chế trên các hành tinh xa xôi.
+                                        </p>
+                                
+                                        <h2>Cốt truyện</h2>
+                                        <p>
+                                            Năm 2200, con người đã khám phá các hành tinh ngoài hệ Mặt Trời và xây dựng các cơ sở trên các hành tinh này. Tuy nhiên, khi họ tiến xa hơn, họ phát hiện ra rằng họ không còn là những người duy nhất trong vũ trụ. Cuộc gặp gỡ với một nền văn hóa ngoài hành tinh mới đã mở ra một loạt sự kiện bất ngờ và cuộc xung đột giữa các thế lực vũ trụ khác nhau.
+                                        </p>
+                                
+                                        <h2>Nhân vật chính</h2>
+                                        <ul>
+                                            <li>John Smith - Nhà khoa học và nhà thám hiểm hàng đầu</li>
+                                            <li>Lisa Johnson - Nhà nghiên cứu ngôn ngữ và văn hóa ngoại hành tinh</li>
+                                            <li>Đại tá Sarah Williams - Trưởng đoàn quân đội trên hành tinh X</li>
+                                        </ul>
+                                
+                                        <h2>Trailer</h2>
+                                        <iframe class="w-1/2 mx-auto" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                                    </article>
+                                
+                                    <footer>
+                                        <p>© 2023 Tên bạn. Tất cả quyền được bảo lưu.</p>
+                                    </footer>
+     
+
+    </div>
+  </body>
+</html>

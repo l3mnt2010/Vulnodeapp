@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Node.js Simple File Upload</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    />
+    <style>
+      #uploadForm {
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+      input.btn {
+        flex: 0.8;
+      }
+      button.btn {
+        flex: 0.15;
+      }
+    </style>
+  </head>
+  <body>
+   
+  </body>
+  <body class="bg-gray-950 w-full">
+    <div
+      class="w-full grid grid-cols-12 sticky top-0 left-0 right-0 border-b border-green-950 text-white font-thin px-5 pt-3 mb-10"
+    >
+      <div class="col-span-2 flex flex-col items-center">
+        <img
+          class="w-14 h-14"
+          src="https://cdn.vectorstock.com/i/preview-1x/44/74/computer-hacker-icon-anonymous-man-with-mask-vector-30694474.webp"
+        />
+        <div class="font-bold">l3m_h0c_r3d</div>
+      </div>
+      <div class="col-span-10 text-xl flex justify-around items-center">
+        <a class="hover:underline" href=""> Home </a>
+        <a class="hover:underline" href="">About</a>
+        <a class="hover:underline" href="">Help</a>
+        <a class="hover:underline" href="">Donate</a>
+      </div>
+    </div>
+
+    <div class="container w-full mt-40 h-max flex items-center justify-center">
+      <form method="post" enctype="multipart/form-data">
+        <input type="file" name="files" class="btn btn-primary" multiple />
+        <button
+          class="btn btn-primary"
+          type="submit"
+          style="border-radius: 4px"
+        >
+          Upload
+        </button>
+      </form>
+    </div>
+    </div>
+  </body>
+</html>

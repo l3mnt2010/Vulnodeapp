@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trang Web Đích</title>
+    <!-- <meta http-equiv="X-Frame-Options" content="deny">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';"> -->
+    <!-- đây là cách thức để ngăn chặn nhúng vào trang web của họ -->
+  </head>
+  <body>
+    <h1>CLICK JACKING DEMO</h1>
+    <h1>Chào mừng đến với trang web của chúng tôi!</h1>
+    <button onclick="sentData()" id="importantButton">
+      Nhấp vào đây để nhận quà miễn phí
+    </button>
+
+    <!-- Trang web tấn công -->
+    <iframe src="http://attacker.com/malicious.html"></iframe>
+    <script>
+      function sentData() {
+        alert(12345, "you is lost many data");
+      }
+    </script>
+  </body>
+</html>
+
+<!--tại đây kể mạo danh có thể lừa người dùng đi vào trong trang web nhầm lẫn từ đó onclick vào trong button sẽ đi đến trang web khác của-->

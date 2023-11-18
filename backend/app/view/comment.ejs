@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stored XSS Demo</title>
+  </head>
+  <body>
+    <h1>Stored XSS Demo</h1>
+    <p>Welcome to the stored XSS demo! Type something below:</p>
+    <form method="POST">
+      <input type="text" name="content" />
+      <input type="text" name="user" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <div>
+      <p><%- comment %></p>
+    </div>
+  </body>
+</html>

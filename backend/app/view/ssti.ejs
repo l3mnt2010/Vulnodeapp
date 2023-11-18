@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>SSTI</title>
+  </head>
+  <body class="bg-gray-950 w-full">
+    <div
+      class="w-full grid grid-cols-12 sticky top-0 left-0 right-0 border-b border-green-950 text-white font-thin px-5 pt-3 mb-10"
+    >
+      <div class="col-span-2 flex flex-col items-center">
+        <img
+          class="w-14 h-14"
+          src="https://cdn.vectorstock.com/i/preview-1x/44/74/computer-hacker-icon-anonymous-man-with-mask-vector-30694474.webp"
+        />
+        <div class="font-bold">l3m_h0c_r3d</div>
+      </div>
+      <div class="col-span-10 text-xl flex justify-around items-center">
+        <a class="hover:underline" href=""> Home </a>
+        <a class="hover:underline" href="">About</a>
+        <a class="hover:underline" href="">Help</a>
+        <a class="hover:underline" href="">Donate</a>
+      </div>
+    </div>
+
+    <form
+      class="flex flex-col w-1/2 mx-auto items-center"
+      action="http://localhost:3000/mysql/ssti"
+      method="POST"
+    >
+      <label
+        for="user_name"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Select your name to action more ghost story</label
+      >
+      <input
+        type="text"
+        name="user_name"
+        class="g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      />
+
+      <input
+        class="bg-blue-500 text-white rounded-md hover:rounded-xl p-3 mt-5"
+        type="submit"
+      />
+    </form>
+    <% if (user_name) { %>
+    <h1 class="font-bold text-blue-500">Chào mừng</h1>
+    <p class="font-bold text-blue-500"><%- user_name %></p>
+
+    <% } %>
+  </body>
+</html>

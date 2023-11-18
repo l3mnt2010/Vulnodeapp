@@ -1,0 +1,27 @@
+<!-- File: index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM-Based XSS Example</title>
+  </head>
+  <body>
+    <h1>Latest Posts</h1>
+    <div id="posts"></div>
+
+    <script>
+      // Lấy dữ liệu từ URL và hiển thị lên trang
+      const urlParams = new URLSearchParams(window.location.search);
+      const postTitle = urlParams.get("title");
+
+      // Hiển thị tiêu đề bài đăng trên trang
+      const postsContainer = document.getElementById("posts");
+      postsContainer.innerHTML = `<h2>${postTitle}</h2>`;
+
+      // JavaScript độc hại thực thi từ dữ liệu người dùng
+      const userContent = urlParams.get("content");
+      const scriptTag = document.createElement("script");
+      scriptTag.textContent = userContent;
+      document.body.appendChild(scriptTag);
+    </script>
+  </body>
+</html>
