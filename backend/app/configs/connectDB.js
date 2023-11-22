@@ -1,7 +1,6 @@
 const mongodb = require("mongodb");
 const mongoClient = mongodb.MongoClient;
 const url =
-  "mongodb+srv://ll3mkm4:89618937@cluster0.bns1tot.mongodb.net/?retryWrites=true&w=majority";
 
 const mongo = new mongoClient(url);
 let conn;
